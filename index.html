@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Specialist Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .question { margin-bottom: 30px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+    .question h3 { margin-top: 0; }
+    .options label { display: block; margin: 5px 0; }
+    .correct { color: green; font-weight: bold; }
+    .incorrect { color: red; font-weight: bold; }
+    button { margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Email Specialist Practice Quiz</h1>
+  <div id="quiz-container"></div>
+
+  <script>
+    const quizData = [
+      {
+        question: "1. NTO uses AMPscript to create dynamic emails. What helps build confidence in dynamic capabilities?",
+        options: [
+          "Use Guided Send",
+          "Use Preview and Test with team members",
+          "Duplicate the dynamic code for each subscriber"
+        ],
+        answer: 1
+      },
+      {
+        question: "2. Which tool provides warnings about Email Sends using AI?",
+        options: [
+          "Einstein Messaging Insights",
+          "Einstein Copy Insights",
+          "Einstein Email Recommendations"
+        ],
+        answer: 0
+      },
+      {
+        question: "3. How to personalize From Name with a specific sales rep?",
+        options: [
+          "Sender Profile and AMPscript Lookup",
+          "Send Classification and Subscriber Attributes",
+          "Dynamic Delivery Profiles and AMPscript Lookup"
+        ],
+        answer: 0
+      },
+      // Add more questions as needed...
+    ];
+
+    const container = document.getElementById('quiz-container');
+
+    quizData.forEach((q, index) => {
+      const div = document.createElement('div');
+      div.className = 'question';
+      const qText = document.createElement('h3');
+      qText.innerText = q.question;
+      div.appendChild(qText);
+
+      const form = document.createElement('form');
+      form.className = 'options';
+
+      q.options.forEach((opt, i) => {
+        const label = document.createElement('label');
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = `q${index}`;
+        input.value = i;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(opt));
+        form.appendChild(label);
+      });
+
+      const result = document.createElement('div');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.innerText = 'Check Answer';
+      btn.onclick = () => {
+        const selected = form.querySelector('input[type=radio]:checked');
+        if (!selected) {
+          result.innerText = 'Please select an answer.';
+          result.className = 'incorrect';
+          return;
+        }
+        const selectedVal = parseInt(selected.value);
+        if (selectedVal === q.answer) {
+          result.innerText = 'Correct!';
+          result.className = 'correct';
+        } else {
+          result.innerText = 'Incorrect. Try again!';
+          result.className = 'incorrect';
+        }
+      };
+
+      div.appendChild(form);
+      div.appendChild(btn);
+      div.appendChild(result);
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>
