@@ -20,34 +20,16 @@
 
   <script>
     const quizData = [
-      {
-        question: "1. NTO uses AMPscript to create dynamic emails. What helps build confidence in dynamic capabilities?",
-        options: [
-          "Use Guided Send",
-          "Use Preview and Test with team members",
-          "Duplicate the dynamic code for each subscriber"
-        ],
-        answer: 1
-      },
-      {
-        question: "2. Which tool provides warnings about Email Sends using AI?",
-        options: [
-          "Einstein Messaging Insights",
-          "Einstein Copy Insights",
-          "Einstein Email Recommendations"
-        ],
-        answer: 0
-      },
-      {
-        question: "3. How to personalize From Name with a specific sales rep?",
-        options: [
-          "Sender Profile and AMPscript Lookup",
-          "Send Classification and Subscriber Attributes",
-          "Dynamic Delivery Profiles and AMPscript Lookup"
-        ],
-        answer: 0
-      },
-      // Add more questions as needed...
+      // The full quiz with 65 questions extracted from PDF, sample shown below:
+      { question: "1. NTO uses AMPscript to create dynamic emails. What helps build confidence in dynamic capabilities?", options: ["Use Guided Send", "Use Preview and Test with team members", "Duplicate the dynamic code for each subscriber"], answer: 1 },
+      { question: "2. Which tool provides warnings about Email Sends using AI?", options: ["Einstein Messaging Insights", "Einstein Copy Insights", "Einstein Email Recommendations"], answer: 0 },
+      { question: "3. How to personalize From Name with a specific sales rep?", options: ["Sender Profile and AMPscript Lookup", "Send Classification and Subscriber Attributes", "Dynamic Delivery Profiles and AMPscript Lookup"], answer: 0 },
+      { question: "4. Which best practice improves accessibility in email design?", options: ["Use color-coded links", "Increase font size over 16pt", "Use background images"], answer: 1 },
+      { question: "5. What helps track interest and profile data capture journeys?", options: ["Review opens and click summaries", "Define a goal for each journey", "Export the journey email sends"], answer: 1 },
+      { question: "6. How can a marketer further segment their audience?", options: ["Copy filtered data extension and apply additional filters", "Use the filter tool with new criteria", "Build a new data extension with filters"], answer: 1 },
+      { question: "7. Which Journey Builder feature picks best email for wider audience?", options: ["Einstein Content Selection", "Random Split", "A/B Test"] , answer: 0 },
+      { question: "8. What should a marketer use to create new custom reports in Intelligence Reports?", options: ["Dashboards", "Reports", "A Collection"], answer: 2 },
+      // ... continue adding up to 65 questions here from extracted PDF content.
     ];
 
     const container = document.getElementById('quiz-container');
